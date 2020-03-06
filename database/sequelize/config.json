@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "root",
+    "password": "root",
+    "database": "sequelize_jest_development",
+    "host": "horeca-mariadb",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "root",
+    "password": "root",
+    "database": "sequelize_jest_test",
+    "host": "horeca-mariadb",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "sequelize_jest",
+    "password": "password",
+    "database": "sequelize_jest_production",
+    "host": "horeca-mariadb",
+    "dialect": "mysql"
+  }
+}

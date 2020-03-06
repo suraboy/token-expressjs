@@ -1,0 +1,16 @@
+FROM dockerhub.eggdigital.com:5000/base-image/horeca-api-payment:latest
+
+RUN yarn global add pm2
+
+COPY docker/supervisor/nodejs.ini /etc/supervisor.d/nodejs.ini
+COPY --chown=node:node . /usr/src/app/
+
+USER node
+
+RUN yarn install
+
+USER root
+
+COPY docker/entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]

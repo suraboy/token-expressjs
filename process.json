@@ -1,0 +1,9 @@
+{
+  "apps": [
+    {
+      "name": "horeca-api-payment",
+      "script": "npm",
+      "args": "run dev"
+    }
+  ]
+}

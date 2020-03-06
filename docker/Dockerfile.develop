@@ -1,0 +1,24 @@
+FROM dockerhub.eggdigital.com:5000/base-image/horeca-api-payment:latest
+
+COPY --chown=node:node . /usr/src/app/
+
+USER node
+
+RUN yarn install
+RUN yarn run build
+
+# Create version file
+RUN export SOURCE_COMMIT="${SOURCE_COMMIT:-$(git rev-parse HEAD)}" \
+    && export SOURCE_TAG="${SOURCE_TAG:-$(git describe --tags --abbrev=0)}" \
+    && export SOURCE_TIME="${SOURCE_TIME:-$(git show --no-patch --no-notes --pretty='%cd' $SOURCE_TAG)}" \
+    && echo -n > version.txt \
+    && echo "SOURCE_COMMIT=${SOURCE_COMMIT}<br>" >> version.txt \
+    && echo "SOURCE_TAG=${SOURCE_TAG}<br>" >> version.txt \
+    && echo "SOURCE_TIME=${SOURCE_TIME}" >> version.txt \
+    && mv version.txt /usr/src/app/
+
+USER root
+
+COPY docker/entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
