@@ -2,123 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88c5ecf0-4944-44aa-8d65-18ac837545a4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/token_expressjs.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/BBLController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/IndexController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/PaymentChannelController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/PaymentConfigController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/PaymentController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/PaymentProviderController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/WeOmniOfflinePaymentController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/controllers/WeOmniOnlinePaymentController.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/checkTypeCard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/curlAxios.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/curlWeOmni.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/customValidate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/pagination.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/parseResponse.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/wrapErrorMessageWeOmni.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/helpers/wrapValidateMessage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/middleware/passport.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/middleware/weomni.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/PaymentConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/PaymentLog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/PaymentTransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/User.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/mongo/product.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/mysql/PaymentChannel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/mysql/PaymentConfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/mysql/PaymentProvider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/mysql/PaymentTransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/mysql/TrueMoneyWalletTransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/models/mysql/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/bbl/callback-request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/bbl/credit-list-request.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/bbl/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-channel/create-paymentchannel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-channel/delete-paymentchannel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-channel/index-paymentchannel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-channel/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-channel/read-paymentchannel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-channel/update-paymentchannel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-config/create-paymentconfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-config/delete-paymentconfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-config/index-paymentconfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-config/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-config/read-paymentconfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-config/update-paymentconfig.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-provider/create-paymentprovider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-provider/delete-paymentprovider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-provider/index-paymentprovider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-provider/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-provider/read-paymentprovider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment-provider/update-paymentprovider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment/create-paymenttransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment/credit-card/showPaymentTransactionByOrderId.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment/list-paymenttransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/payment/show-paymenttransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/offline/activate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/offline/charge.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/offline/checkpayment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/offline/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/offline/voids.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/online/cancelPayment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/online/chargePayment.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/online/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/online/requestOtp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/online/verifyOtp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/transaction/create.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/request/weomni/payment/transaction/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/horecaToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/paymentToken.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/weomiOffline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/service/weomiOnline.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/babel.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/graylog.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/sequelize.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/mongodb.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/s15_deployed.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/s17_deployed.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/s25_deployed.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/s28_deployed.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/sequelize/config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/sequelize/migrations/20200207173511-create-truemoney-payment-transaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/sequelize/seeders/TrueMoneyPaymentTransaction.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/database/sql.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/Dockerfile.develop" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/Dockerfile.local" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/Dockerfile.production" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/entrypoint.sh" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/oauth/alpha/oauth-public.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/oauth/dev/oauth-public.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/oauth/staging/oauth-public.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/oauth/testing/oauth-private.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/oauth/testing/oauth-public.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docker/supervisor/nodejs.ini" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/jest.config.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/process.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/bbl.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/index.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/payment-channel.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/payment-config.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/payment-provider.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/payment.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes/v1/weomni.route.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/oauth-public.key" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/storage/oauth-public.test.key" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -145,7 +29,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="520">
@@ -153,6 +37,18 @@
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="751">
+                <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -253,6 +149,7 @@
         <option value="$PROJECT_DIR$/app/helpers/curlWeOmni.js" />
         <option value="$PROJECT_DIR$/app/api/controllers/PaymentController.js" />
         <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -316,15 +213,16 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1583468604459</updated>
-      <workItem from="1583468606078" duration="5843000" />
+      <workItem from="1583468606078" duration="6013000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5843000" />
+    <option name="totallyTimeSpent" value="6013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1440" y="23" width="1920" height="1057" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
       <window_info id="Favorites" side_tool="true" />
@@ -505,6 +403,16 @@
           <folding>
             <element signature="e#0#30#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="751">
+            <caret line="59" column="18" selection-start-line="59" selection-start-column="18" selection-end-line="59" selection-end-column="18" />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
