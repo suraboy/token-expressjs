@@ -10,7 +10,7 @@ services:
     ports:
       - "7319:80"
     volumes:
-      - .:/usr/src/app:cached
+      - .:/usr/src/app
       - ./.env.local:/usr/src/app/.env:cached
       - ./docker/oauth/dev/oauth-public.key:/usr/src/app/storage/oauth-public.key:cached
       - ./docker/oauth/dev/oauth-public.key:/usr/src/app/storage/oauth-public.test.key:cached

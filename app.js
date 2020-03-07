@@ -7,7 +7,6 @@ import passportManager from './app/middleware/passport';
 import path from 'path';
 import router from './routes/v1';
 import fs from'fs';
-import {getAccessToken} from "./app/service/horecaToken";
 //--- End of Include -----
 
 //--- Declare Variable ---
@@ -23,7 +22,7 @@ app.use(bodyParser.text());
 app.use(expressStatusMonitor());
 app.use(expressValidator());
 app.use('/', express.static(path.join(__dirname, 'public'), {maxAge: 31557600000}));
-var accessToken = ''
+
 app.all('*', function (req, res, next) {
     let responseSettings = {
         "AccessControlAllowOrigin": req.headers.origin,
@@ -59,29 +58,9 @@ app.get('/version.txt', (req, res) => {
     res.type('txt').send(versions)
 })
 
-var accessToken = ''
-
-app.use(async (req, res, next) => {
-    if (req.cookies.act === undefined) {
-        const oauth = await getAccessToken();
-        if (oauth.error) {
-            return res.status(oauth.statusCode).json({
-                errors: oauth
-            })
-        }
-        accessToken = oauth.data.access_token;
-        res.cookie('act', accessToken, {maxAge: 900000, httpOnly: true});
-    } else {
-        accessToken = req.cookies.act
-    }
-    return next()
-})
-
-
 app.use(passportManager.initialize());
 
 app.use((req, res, next) => {
-
     res.status(404);
     // respond with html page
     if (req.accepts('html')) {

@@ -3,22 +3,15 @@ import {messageValidate} from '../../helpers/wrapValidateMessage';
 import {paginate, getFullUrl, getOptions} from '../../helpers/pagination';
 import dotenv from 'dotenv';
 import models from '../../models/mysql';
-import BBLController from './BBLController';
 import curlWeOmni from '../../helpers/curlWeOmni';
-import weomiOnline from "../../service/weomiOnline";
+import {wrapErrorMessageWeOmni} from "./../../helpers/wrapErrorMessageWeOmni";
 import {parseResponse} from "../../helpers/parseResponse";
+import {getAccessToken} from "../../service/horecaToken";
+import jwtDecode from 'jwt-decode';
 
-var moment = require('moment');
-let logger = require('./../../../config/graylog').graylog;
 dotenv.config();
-
-let additionalFields = {
-    levelName: 'info',
-    endpoint: '',
-    version: '1.0',
-    logType: 'out_response',
-    response: {},
-}
+let responseData = {};
+var accessToken = '';
 
 class PaymentController {
 
@@ -102,317 +95,51 @@ class PaymentController {
         }
     };
 
-    async createTrueMoneyWalletTransaction(req, res, next) {
-        try {
-            /*Error Varidate 422*/
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                let messageError = await messageValidate(errors.array());
-                let response = getMessageError(messageError);
-                return res.status(422).json(response);
-            }
-
-            let params = req.body;
-
-            logger.info('WeOmniTransactionPayment: Request', 'WeOmniTransactionPayment: Request', {
-                levelName: 'info',
-                endpoint: `${process.env.APP_URL}`,
-                version: '1.0',
-                logType: 'in_request',
-                request: params
-            });
-
-            params['oauth_client_id'] = params.client_id;
-            params['isv_payment_ref'] = params.tx_ref_id;
-            params['request_amount'] = params.amount;
-            params['timestamp'] = moment().unix();
-            params['log_response'] = JSON.stringify(params.log_response);
-
-            const response = await models.TrueMoneyPaymentTransaction.create(params);
-
-            let responseData = {
-                "data": response
-            }
-
-            additionalFields['endpoint'] = `${process.env.APP_URL}`,
-                additionalFields['response'] = responseData
-
-            logger.info('WeOmniTransactionPayment: Response(Success)', 'WeOmniTransactionPayment: Response(Success)', additionalFields);
-
-            return res.status(200).send(responseData);
-
-        } catch (err) {
-            return next(err);
-        }
-    };
-
-    async getPaymentTransactions(req, res, next) {
-        try {
-            /*Error Varidate 422*/
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                let messageError = await messageValidate(errors.array());
-                let response = getMessageError(messageError);
-                return res.status(422).json(response);
-            }
-
-            const options = getOptions(req)
-
-            const {docs, pages, total} = await models.PaymentTransactions.paginate(options);
-
-            const count = Object.keys(docs).length;
-
-            let pagination = paginate(getFullUrl(req), count, pages, total, options.paginate, options.page)
-
-            let response = {
-                data: docs,
-                meta: pagination,
-                total: {}
-            }
-
-            if (req.query.total && req.query.total === 'request_amount') {
-                const key = req.query.total
-                response['total'][key] = sum(docs, key)
-            } else {
-                delete response['total']
-            }
-
-            return res.status(200).send(response);
-
-        } catch (err) {
-            return next(err);
-        }
-    };
-
-    async getPaymentTransactionDetail(req, res, next) {
-        /*Error Varidate 422*/
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            let messageError = await messageValidate(errors.array());
-            let response = getMessageError(messageError);
-            return res.status(422).json(response);
-        }
-
-        const paymentTransaction = await models.PaymentTransactions.findOne({
-            "where": {
-                "transaction_id": req.params.transaction_id
-            }
-        }).then(data => {
-            if (data === null) {
-                return res.status(404).json({
-                    "errors": {
-                        "status_code": 404,
-                        "message": "Not found."
-                    }
-                });
-            }
-            return data.get({plain: true});
-        });
-
-        if (req.query.request_body === 'true') {
-            const paymentConfigs = await models.PaymentConfigs.findOne({
-                "where": {
-                    "outlet_id": paymentTransaction.outlet_id,
-                    "terminal_id": paymentTransaction.terminal_id,
-                    "payment_channel_id": paymentTransaction.payment_channel_id
-                }
-            }).then(data => {
-                if (data === null) {
-                    return null;
-                }
-                return data.get({plain: true});
-            });
-
-            let configData = [];
-            if (paymentConfigs != null) {
-                configData = paymentConfigs.data_config;
-            }
-            paymentTransaction.request_body = configData;
-        }
-
-
-        let response = {
-            data: paymentTransaction
-        };
-
-        return res.status(200).send(response);
-
-    }
-
-    async getCreditCardTransactionByOrderId(req, res, next){
-        /*Error Varidate 422*/
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            let messageError = await messageValidate(errors.array());
-            let response = getMessageError(messageError);
-            return res.status(422).json(response);
-        }
-
-        const paymentTransaction = await models.PaymentTransactions.findOne({
-            "where": {
-                "order_id": req.params.order_id
-            }
-        }).then(data => {
-            if (data === null) {
-                return res.status(404).json({
-                    "errors": {
-                        "status_code": 404,
-                        "message": "Not found."
-                    }
-                });
-            }
-            return data.get({plain: true});
-        });
-
-        if (req.query.request_body === 'true') {
-            const paymentConfigs = await models.PaymentConfigs.findOne({
-                "where": {
-                    "outlet_id": paymentTransaction.outlet_id,
-                    "terminal_id": paymentTransaction.terminal_id,
-                    "payment_channel_id": paymentTransaction.payment_channel_id
-                }
-            }).then(data => {
-                if (data === null) {
-                    return null;
-                }
-                return data.get({plain: true});
-            });
-
-            let configData = [];
-            if (paymentConfigs != null) {
-                configData = paymentConfigs.data_config;
-            }
-            paymentTransaction.request_body = configData;
-        }
-
-
-        let response = {
-            data: paymentTransaction
-        };
-
-        return res.status(200).send(response);
-    }
-    async createPaymentTransaction(req, res, next) {
-        try {
-            const errors = validationResult(req);
-            if (!errors.isEmpty()) {
-                let messageError = await messageValidate(errors.array());
-                let response = getMessageError(messageError);
-                return res.status(422).json(response);
-            }
-
-            let params = req.body;
-
-            logger.info('createPaymentTransaction: Request', 'createPaymentTransaction: Request', {
-                levelName: 'info',
-                endpoint: `${process.env.APP_URL}`,
-                version: '1.0',
-                logType: 'in_request',
-                request: params
-            });
-
-            // Default Data
-            params['status'] = 'waiting';
-            params['sync_status'] = 'N';
-            params['transaction_id'] = moment().format('YYMMDDhhmmss') + params.order_no;
-
-            delete params.order_no;
-
-            const response = await models.PaymentTransactions.create(params);
-            let responseData = {
-                "data": response
-            }
-
-            additionalFields['endpoint'] = `${process.env.APP_URL}`
-            additionalFields['response'] = responseData
-            logger.info('createPaymentTransaction: Response(Success)', 'createPaymentTransaction: Response(Success)', additionalFields);
-
-            return res.status(201).send(responseData);
-        } catch (err) {
-            return next(err);
-        }
-    }
-
-    async getPaymentVoid(req, res, next) {
-        /*Error Varidate 422*/
-        const errors = validationResult(req);
-        if (!errors.isEmpty()) {
-            let messageError = await messageValidate(errors.array());
-            let response = getMessageError(messageError);
-            return res.status(422).json(response);
-        }
-
-        const paymentTransaction = await models.PaymentTransactions.findOne({
-            "where": {
-                "transaction_id": req.params.transaction_id
-            }
-        }).then(pay_trans => {
-            if(pay_trans.payment_channel_id === 3 && pay_trans.status == 'success'){ //BBL
-                if(pay_trans.payment_reference != undefined){
-                    var result = BBLController.voidOrder(pay_trans.payment_reference, pay_trans.order_id, pay_trans.transaction_id);
-                    result.then((data) => {
-                        //update payment_transaction
-                        let update_data = {
-                            'status': 'cancel',
-                            'updated_at': moment().format("YYYY-MM-DD HH:mm:ss")
-                        }
-                        pay_trans.update(update_data, {where: {id: pay_trans.id}})
-                        
-                        return res.status(200).json({
-                            "status_code": 200,
-                            "message": "Void successfully",
-                            "ref": data.ref
-                        });
-                    })
-                    result.catch((error) => {
-                        return res.status(error.status).json({
-                            "errors": {
-                                "status_code": error.status,
-                                "message": "BBL - "+error.error.errMsg
-                            }
-                        });
-                    })
-                } else {
-                    return res.status(422).json({
-                        "errors": {
-                            "status_code": 422,
-                            "message": "Invalid Payment Ref."
-                        }
-                    });
-                }
-            } else {
-                return res.status(404).json({
-                    "errors": {
-                        "status_code": 404,
-                        "message": "Not found."
-                    }
-                });
-            }
-        }).catch(error => {
-            return res.status(404).json({
-                "errors": {
-                    "status_code": 404,
-                    "message": error.response
-                }
-            });
-        });
-    }
-
-    async testAuthenAcc(req,res,next){
+    async testAuthenAcc(req, res, next) {
         const endpoint = `${process.env.ACCOUNT_API_URL}v1/users`;
-        const accessToken = req.cookies.act;
+        var cookieToken = req.cookies.oauth;
+        if (cookieToken === undefined) {
+            accessToken = getToken(req, res);
+        } else {
+            accessToken = checkExpireTime(req, res, cookieToken);
+        }
         let params = req.body;
-        const response = await curlWeOmni.get(accessToken,endpoint, params);
-        return res.status(response.status).send(parseResponse(response.data));
+        const response = await curlWeOmni.get(cookieToken, endpoint, params);
+        if (response.status === 200) {
+            responseData = response.data
+        } else {
+            responseData = wrapErrorMessageWeOmni(response.response)
+        }
+        return res.status(response.status).send(parseResponse(responseData));
     }
 }
 
-const sum = (docs, key) => {
-    return docs.reduce((a, b) => parseInt(a) + (parseInt(b[key]) || 0), 0);
+const getToken = async (req, res) => {
+    try {
+        const oauth = await getAccessToken();
+        if (oauth.error) {
+            return res.status(oauth.statusCode).json({
+                errors: oauth
+            })
+        }
+        var accessToken = oauth.data.access_token;
+        res.cookie('oauth', accessToken, {maxAge: 900000, httpOnly: true});
+        return accessToken;
+    } catch (e) {
+        console.log(e);
+    }
+}
+const checkExpireTime = async (req, res, token) => {
+    var jwt = jwtDecode(token);
+    var current_time = Date.now() / 1000;
+    if (jwt.exp < current_time) {
+        return await getToken(req, res);
+    } else {
+        return token;
+    }
 }
 
 const getMessageError = (messageError) => {
-
     return {
         "errors": {
             "status_code": 422,

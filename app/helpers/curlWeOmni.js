@@ -23,13 +23,14 @@ class curlWeOmni {
                 params: params
             })
                 .then(function (response) {
-                    console.log(response);
-
                     return response;
                 })
                 .catch(function (error) {
-
-                    return error;
+                    let res = {
+                        'status': error.response.status,
+                        'response': error.response
+                    };
+                    return res;
                 });
         } catch (error) {
             console.error(error);

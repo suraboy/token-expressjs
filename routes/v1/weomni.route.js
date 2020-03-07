@@ -9,7 +9,6 @@ import WeOmniOfflinePaymentController from '../../app/api/controllers/WeOmniOffl
 import PaymentController from "../../app/api/controllers/PaymentController";
 
 const router = express.Router();
-
 router.route('/offline/activate').post([passportManager.authenticate, weOmniOfflineRequest.activate], WeOmniOfflinePaymentController.activateCode);
 router.route('/offline/charges').post([passportManager.authenticate, weOmniOfflineRequest.charge], WeOmniOfflinePaymentController.charge);
 router.route('/offline/charges/:id/voids').post([passportManager.authenticate, weOmniOfflineRequest.void], WeOmniOfflinePaymentController.void);
@@ -25,7 +24,6 @@ router.route('/online/payment/cancel').post([passportManager.authenticate, weOmn
 router.route('/offline/transactions').get([passportManager.authenticate], PaymentController.getTrueMoneyWalletOfflineTransactions);
 router.route('/online/transactions').get([passportManager.authenticate], PaymentController.getTrueMoneyWalletOnlineTransactions);
 //Create Transaction Tmn
-router.route('/transactions').post([passportManager.authenticate, weOmniPaymentTransactionRequest.create], PaymentController.createTrueMoneyWalletTransaction);
 
 router.route('/authen').get([], PaymentController.testAuthenAcc);
 
