@@ -1,11 +1,11 @@
 import express from 'express';
-import TokenController from "../../app/api/controllers/TokenController";
+import PaymentController from "../../app/api/controllers/TokenController";
 
 const router = express.Router();
 
 /**
  * remove prefix /api use  to the future.
  */
-router.route('/authen').get([], TokenController.testAuthenAcc);
+router.route('/v1/authen').get([], PaymentController.testAuthenAcc);
 
 export default router;

@@ -1,35 +1,27 @@
-import {validationResult} from 'express-validator/check';
-import {messageValidate} from '../../helpers/wrapValidateMessage';
-import {paginate, getFullUrl, getOptions} from '../../helpers/pagination';
 import dotenv from 'dotenv';
-import models from '../../models/mysql';
-import curlWeOmni from '../../helpers/curlWeOmni';
+import axios from '../../helpers/curlAxios';
 import {wrapErrorMessageWeOmni} from "./../../helpers/wrapErrorMessageWeOmni";
 import {parseResponse} from "../../helpers/parseResponse";
 import {getAccessToken} from "../../service/horecaToken";
 import jwtDecode from 'jwt-decode';
 
 dotenv.config();
-let responseData = {};
 var accessToken = '';
 
 class TokenController {
     async testAuthenAcc(req, res, next) {
+        let responseData;
         const endpoint = `${process.env.ACCOUNT_API_URL}v1/users`;
         var cookieToken = req.cookies.oauth;
         if (cookieToken === undefined) {
-            accessToken = getToken(req, res);
+            accessToken = await getToken(req, res);
         } else {
-            accessToken = checkExpireTime(req, res, cookieToken);
+            accessToken = await checkExpireTime(req, res, cookieToken);
         }
         let params = req.body;
-        const response = await curlWeOmni.get(cookieToken, endpoint, params);
-        if (response.status === 200) {
-            responseData = response.data
-        } else {
-            responseData = wrapErrorMessageWeOmni(response.response)
-        }
-        return res.status(response.status).send(parseResponse(responseData));
+        const response = await axios.get(accessToken, endpoint, params);
+
+        return res.status(response.status).send(parseResponse(response));
     }
 }
 
