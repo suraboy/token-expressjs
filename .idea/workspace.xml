@@ -2,19 +2,78 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="88c5ecf0-4944-44aa-8d65-18ac837545a4" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.env.local" beforeDir="false" afterPath="$PROJECT_DIR$/.env.local" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/api/controllers/PaymentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/controllers/PaymentController.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/curlWeOmni.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/curlWeOmni.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/wrapErrorMessageWeOmni.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/wrapErrorMessageWeOmni.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controllers/BBLController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controllers/PaymentChannelController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controllers/PaymentConfigController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controllers/PaymentController.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/api/controllers/TokenController.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controllers/PaymentProviderController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controllers/WeOmniOfflinePaymentController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/api/controllers/WeOmniOnlinePaymentController.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/checkTypeCard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/curlWeOmni.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/middleware/weomni.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/PaymentConfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/PaymentLog.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/PaymentTransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/User.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mongo/product.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mysql/PaymentChannel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mysql/PaymentConfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mysql/PaymentProvider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mysql/PaymentTransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mysql/TrueMoneyWalletTransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/mysql/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/bbl/callback-request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/bbl/credit-list-request.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/bbl/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-channel/create-paymentchannel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-channel/delete-paymentchannel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-channel/index-paymentchannel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-channel/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-channel/read-paymentchannel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-channel/update-paymentchannel.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-config/create-paymentconfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-config/delete-paymentconfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-config/index-paymentconfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-config/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-config/read-paymentconfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-config/update-paymentconfig.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-provider/create-paymentprovider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-provider/delete-paymentprovider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-provider/index-paymentprovider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-provider/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-provider/read-paymentprovider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment-provider/update-paymentprovider.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment/create-paymenttransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment/credit-card/showPaymentTransactionByOrderId.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment/list-paymenttransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/payment/show-paymenttransaction.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/offline/activate.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/offline/charge.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/offline/checkpayment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/offline/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/offline/voids.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/online/cancelPayment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/online/chargePayment.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/online/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/online/requestOtp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/online/verifyOtp.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/transaction/create.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/request/weomni/payment/transaction/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/paymentToken.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/weomiOffline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/service/weomiOnline.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/v1/bbl.route.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/routes/v1/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/v1/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/v1/payment.route.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/v1/weomni.route.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/v1/weomni.route.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/v1/index.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/v1/payment-channel.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/v1/payment-config.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/v1/payment-provider.route.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/v1/weomni.route.js" beforeDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,10 +89,31 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app.js">
+        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="66" column="22" selection-start-line="66" selection-start-column="22" selection-end-line="66" selection-end-column="22" />
+            <state relative-caret-position="390">
+              <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/api/controllers/TokenController.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#57#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/routes/v1/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="21" />
               <folding>
                 <element signature="e#0#30#0" expanded="true" />
               </folding>
@@ -41,65 +121,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/api/controllers/PaymentController.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
-              <folding>
-                <element signature="e#0#57#0" expanded="true" />
-                <element signature="n#!!block;n#getTrueMoneyWalletOnlineTransactions#0;n#PaymentController#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="34" column="15" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/service/horecaToken.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="12" column="30" selection-start-line="12" selection-start-column="25" selection-end-line="12" selection-end-column="30" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/getToken.js">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" selection-start-line="1" selection-end-line="1" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/customValidate.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#59#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/helpers/wrapErrorMessageWeOmni.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="45" selection-start-column="45" selection-end-column="45" />
+              <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
             </state>
           </provider>
         </entry>
@@ -125,16 +151,17 @@
         <option value="$PROJECT_DIR$/.env.local" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/package.json" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
         <option value="$PROJECT_DIR$/app/helpers/curlWeOmni.js" />
         <option value="$PROJECT_DIR$/app/helpers/wrapErrorMessageWeOmni.js" />
         <option value="$PROJECT_DIR$/server.js" />
-        <option value="$PROJECT_DIR$/routes/v1/index.js" />
         <option value="$PROJECT_DIR$/routes/v1/weomni.route.js" />
         <option value="$PROJECT_DIR$/app/service/horecaToken.js" />
         <option value="$PROJECT_DIR$/app/helpers/getToken.js" />
         <option value="$PROJECT_DIR$/app.js" />
         <option value="$PROJECT_DIR$/app/api/controllers/PaymentController.js" />
+        <option value="$PROJECT_DIR$/docker-compose.yml" />
+        <option value="$PROJECT_DIR$/routes/v1/index.js" />
+        <option value="$PROJECT_DIR$/app/api/controllers/TokenController.js" />
       </list>
     </option>
   </component>
@@ -148,6 +175,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -164,13 +192,12 @@
               <item name="token_expressjs" type="b2602c69:ProjectViewProjectNode" />
               <item name="token_expressjs" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
-              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+              <item name="middleware" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -211,13 +238,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="20954000" />
+    <option name="totallyTimeSpent" value="21423000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1440" height="812" extended-state="6" />
+    <frame x="0" y="25" width="1440" height="796" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3505007" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.35550788" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -247,9 +274,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
           <caret line="2" selection-start-line="2" selection-end-line="2" selection-end-column="54" />
-          <folding>
-            <element signature="e#28#77#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -271,9 +295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="77" lean-forward="true" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="77" />
-          <folding>
-            <element signature="e#73#122#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -281,9 +302,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="209">
           <caret line="35" column="34" lean-forward="true" selection-start-line="35" selection-start-column="12" selection-end-line="35" selection-end-column="34" />
-          <folding>
-            <element signature="e#0#57#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -330,13 +348,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="12" column="22" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.env.local">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="465">
@@ -358,26 +369,6 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/v1/payment.route.js" />
-    <entry file="file://$PROJECT_DIR$/routes/v1/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="14" lean-forward="true" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-          <folding>
-            <element signature="e#112#167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/routes/v1/weomni.route.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="54" lean-forward="true" selection-start-line="27" selection-start-column="54" selection-end-line="27" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#30#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/server.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="30">
@@ -402,16 +393,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="210">
           <caret line="14" column="9" selection-start-line="14" selection-start-column="4" selection-end-line="14" selection-end-column="9" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="34" column="15" selection-start-line="34" selection-start-column="5" selection-end-line="34" selection-end-column="15" />
         </state>
       </provider>
     </entry>
@@ -458,13 +439,62 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/api/controllers/PaymentController.js">
+    <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="117" column="9" lean-forward="true" selection-start-line="117" selection-start-column="9" selection-end-line="117" selection-end-column="9" />
+        <state relative-caret-position="15">
+          <caret line="1" column="7" selection-start-line="1" selection-start-column="7" selection-end-line="1" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/v1/index.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/v1/weomni.route.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" selection-start-line="27" selection-end-line="27" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="42" column="4" lean-forward="true" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="33" selection-start-line="26" selection-start-column="33" selection-end-line="26" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/api/controllers/TokenController.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="201">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
           <folding>
             <element signature="e#0#57#0" expanded="true" />
-            <element signature="n#!!block;n#getTrueMoneyWalletOnlineTransactions#0;n#PaymentController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/routes/v1/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="15" selection-end-line="8" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#30#0" expanded="true" />
           </folding>
         </state>
       </provider>

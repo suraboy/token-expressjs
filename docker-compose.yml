@@ -20,21 +20,11 @@ services:
       NODE_ENV: local
       HTTPS_METHOD: noredirect # support both http and https
     extra_hosts:
-      - token-expressjs.eggsmartpos.local:127.0.0.1
+      - token-expressjs.local:127.0.0.1
     networks:
       network-horeca:
         aliases:
-          - token-expressjs.eggsmartpos.local
-      egg-horeca-graylog_network-graylog:
-    healthcheck:
-      test: curl -f http://token-expressjs.eggsmartpos.local
-      start_period: 30s
-      interval: 30s
-      timeout: 15s
-      retries: 3
-
+          - token-expressjs.local
 networks:
   network-horeca:
-    external: true
-  egg-horeca-graylog_network-graylog:
     external: true

@@ -1,16 +1,11 @@
 import express from 'express';
-import weomniRouter from './weomni.route';
-import bblRouter from './bbl.route';;
-import paymentProvider from './payment-provider.route';
-import paymentChannel from './payment-channel.route';
-import paymentConfig from './payment-config.route';
+import TokenController from "../../app/api/controllers/TokenController";
 
 const router = express.Router();
 
 /**
  * remove prefix /api use  to the future.
  */
-router.use('/v1/weomni', weomniRouter);
-
+router.route('/authen').get([], TokenController.testAuthenAcc);
 
 export default router;
