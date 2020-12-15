@@ -10,7 +10,7 @@ var accessToken = '';
 
 class TokenController {
     async testAuthenAcc(req, res, next) {
-        let responseData;
+        //get api form your api.
         const endpoint = `${process.env.ACCOUNT_API_URL}v1/users`;
         var cookieToken = req.cookies.oauth;
         if (cookieToken === undefined) {
@@ -27,6 +27,7 @@ class TokenController {
 
 const getToken = async (req, res) => {
     try {
+        //get token form your api.
         const oauth = await getAccessToken();
         if (oauth.error) {
             return res.status(oauth.statusCode).json({
